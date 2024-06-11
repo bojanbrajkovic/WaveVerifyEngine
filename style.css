@@ -1,0 +1,285 @@
+.helloflow-muted {
+  overflow: hidden !important;
+}
+
+.helloflow-container {
+  font-family: inherit;
+}
+
+.helloflow-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999999;
+}
+
+.helloflow-control {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  display: inline-block;
+  width: 120px; /* Set a specific width */
+  background-color: #3665f3;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.helloflow-control:hover {
+  background-color: #fff199;
+}
+
+.helloflow-modal {
+  position: fixed;
+  display: none;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.helloflow-modal.active {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 99999999;
+}
+.helloflow-control.active {
+  z-index: 99999999 !important;
+}
+
+.helloflow-modal-content {
+  width: 100%;
+  overflow: visible;
+  position: relative;
+}
+
+.helloflow-modal-close {
+  position: absolute;
+  font-size: 40px;
+  line-height: 18px;
+  color: #7F1B08;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.-slider .helloflow-modal-content,
+.-side-tab .helloflow-modal-content,
+.helloflow-control.-side-tab {
+  -webkit-transition: transform 0.4s ease 0s, -webkit-transform 0.4s ease 0s;
+  -o-transition: transform 0.4s ease 0s, -webkit-transform 0.4s ease 0s;
+  transition: transform 0.4s ease 0s, -webkit-transform 0.4s ease 0s;
+}
+
+/* popup & slider */
+.helloflow-control.-popup,
+.helloflow-control.-slider {
+  padding: 20px 50px;
+  border-radius: 30px;
+  color: #ffffff;
+}
+
+.helloflow-modal.-popup,
+.helloflow-modal.-slider {
+  background-color: rgba(0, 0, 0, 0.5);
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100%;
+}
+
+.-popup .helloflow-modal-content,
+.-slider .helloflow-modal-content {
+  max-width: 800px;
+  height: 700px;
+}
+
+.-popup .helloflow-modal-content {
+  max-height: 90%;
+  opacity: 0;
+  -webkit-transition: opacity 0.4s ease 0s;
+  -o-transition: opacity 0.4s ease 0s;
+  transition: opacity 0.4s ease 0s;
+}
+
+.-slider .helloflow-modal-content {
+  height: 100%;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  width: 80%;
+}
+
+.-popup .helloflow-modal-close {
+  top: -23px;
+  right: -27px;
+}
+
+.-slider .helloflow-modal-close {
+  top: 20px;
+  left: -40px;
+}
+
+.-popup .helloflow-modal-content.visible {
+  opacity: 1;
+}
+
+.-slider .helloflow-modal-content.visible {
+  -webkit-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+/* popover */
+.helloflow-control.-popover {
+  position: fixed;
+  border-radius: 50%;
+  color: transparent;
+  width: 54px;
+  height: 54px;
+  right: 26px;
+  bottom: 26px;
+  overflow: hidden;
+  background-image: url('./popover.svg');
+  background-repeat: no-repeat;
+  background-position-x: 16px;
+  background-position-y: 18px;
+  z-index: 9999999;
+}
+
+.helloflow-modal.-popover {
+  bottom: 108px;
+  right: 26px;
+  width: 420px;
+  height: calc(100% - 216px);
+  min-height: 400px;
+}
+
+.-popover .helloflow-modal-content {
+  height: 100%;
+  opacity: 0;
+  -webkit-transition: opacity 0.4s ease 0s;
+  -o-transition: opacity 0.4s ease 0s;
+  transition: opacity 0.4s ease 0s;
+  padding: 20px;
+  border-radius: 4px;
+  background-color: rgba(38, 38, 39, 0.8);
+}
+
+.-popover .helloflow-modal-content.visible {
+  opacity: 1;
+}
+
+.-popover .helloflow-modal-close {
+  top: 2px;
+  left: -2px;
+}
+
+/* side-tab */
+.helloflow-modal.-side-tab {
+  right: 0;
+  width: 420px;
+  /*30%*/
+  bottom: 0;
+  height: 100%;
+}
+
+.helloflow-control.-side-tab {
+  position: fixed;
+  border-radius: 4px 4px 0 0;
+  color: #fff;
+  padding: 10px 20px;
+  padding-left: 50px;
+  right: 0;
+  bottom: calc(50% + 75px);
+  overflow: hidden;
+  background-image: url('./popover.svg');
+  background-repeat: no-repeat;
+  background-position-x: 14px;
+  background-position-y: 10px;
+  z-index: 9999999;
+  -webkit-transform: translateX(0) rotate(-90deg);
+  -ms-transform: translateX(0) rotate(-90deg);
+  transform: translateX(0) rotate(-90deg);
+  -webkit-transform-origin: right bottom;
+  -ms-transform-origin: right bottom;
+  transform-origin: right bottom;
+}
+
+.-side-tab .helloflow-modal-content {
+  height: 100%;
+  -webkit-transform: translateX(420px);
+  -ms-transform: translateX(420px);
+  transform: translateX(420px);
+  box-shadow: 0 0 6px #999;
+}
+
+.-side-tab .helloflow-modal-content.visible {
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.helloflow-control.-side-tab.active {
+  -webkit-transform: translateX(-420px) rotate(-90deg);
+  -ms-transform: translateX(-420px) rotate(-90deg);
+  transform: translateX(-420px) rotate(-90deg);
+}
+
+.-side-tab .helloflow-modal-close {
+  display: none;
+  top: 4px;
+}
+
+/* low resolutions */
+@media (max-width: 900px) {
+  .helloflow-modal-close {
+    text-shadow: 0 1px 3px #555;
+  }
+
+  .-popup .helloflow-modal-close {
+    top: 22px;
+    right: 22px;
+  }
+
+  .-slider .helloflow-modal-close {
+    top: 20px;
+    left: 22px;
+  }
+}
+
+@media (max-width: 500px) {
+  .helloflow-modal {
+    height: 100% !important;
+    width: 100vw !important;
+    right: 0;
+    top: 0;
+    left: 0;
+  }
+  .helloflow-control.-side-tab.active {
+    -webkit-transform: translateX(0) rotate(-90deg);
+    -ms-transform: translateX(0) rotate(-90deg);
+    transform: translateX(0) rotate(-90deg);
+    z-index: 0 !important;
+  }
+  .helloflow-modal.-side-tab {
+    background-color: rgba(38, 38, 39, 0.8);
+  }
+  .-side-tab .helloflow-modal-content {
+    width: 80%;
+    right: 0;
+    position: absolute;
+  }
+  .-popover .helloflow-modal-content {
+    padding: 0;
+  }
+  .-side-tab .helloflow-modal-close {
+    display: inline-block;
+  }
+}
